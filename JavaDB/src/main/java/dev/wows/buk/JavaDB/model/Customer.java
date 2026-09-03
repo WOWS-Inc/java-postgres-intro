@@ -1,5 +1,8 @@
 package dev.wows.buk.JavaDB.model;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 public class Customer {
 
     private long id;
@@ -10,14 +13,30 @@ public class Customer {
     private String phone;
 
     public Customer() { }
-    public Customer(long id, String name, String address,
+    public Customer(String name, String address,
                     String email, String phone) {
         
-        setId(id);
         setName(name);
         setAddress(address);
         setEmail(email);
         setPhone(phone);
+    }
+    public Customer(long id, String name, String address,
+                    String email, String phone) {
+        
+        this(name, address, email, phone);
+
+        setId(id);
+    }
+    public Customer(ResultSet res) throws SQLException {
+
+        this(
+            res.getLong("id"),
+            res.getString("name"),
+            res.getString("address"),
+            res.getString("email"),
+            res.getString("phone")
+        );
     }
 
     public long getId() {

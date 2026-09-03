@@ -1,6 +1,6 @@
 server:
   port: 4000
- 
+
 spring:
   web:
     error:
