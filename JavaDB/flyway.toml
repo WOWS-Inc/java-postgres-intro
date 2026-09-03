@@ -1,0 +1,8 @@
+[environments.local]
+url = "jdbc:postgresql://localhost:5432/booleandb"
+user = "postgres"
+password = ""
+
+[flyway]
+environment = "local"
+locations = ["filesystem:src/main/resources/db/migration"]
